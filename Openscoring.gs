@@ -37,22 +37,3 @@ function evaluate(url, arguments){
 
   return response["result"];
 }
-
-function createArguments(activeFields, values){
-
-  if(values.length != 1){
-    throw "Expected 1 data row, but got " + values.length + " data rows";
-  } // End if
-
-  if(values[0].length != activeFields.length){
-    throw "Expected " + activeFields.length + " data columns, but got " + values[0].length + " data columns";
-  }
-
-  var arguments = {};
-
-  for(var column = 0; column < activeFields.length; column++){
-    arguments[activeFields[column]] = values[0][column];
-  }
-
-  return arguments;
-}
